@@ -10,14 +10,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4 # загружаем реп. на виртуальную машину
-      
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4 # установка SDK для сборки, тестирования и тд. проекта.
       with:
         dotnet-version: '6.0.x'
 
     - name: Restore NuGet
-      run: dotnet restore WpfApp.sln # восставновление пакетов nuget
+      run: dotnet restore WpfApp/WpfApp.csproj # восставновление пакетов nuget
 
     - name: Build
       run: dotnet build UnitTestProject1/UnitTestProject1.csproj # собираем проект
