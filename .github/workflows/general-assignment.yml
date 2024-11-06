@@ -15,7 +15,7 @@ jobs:
       with:
         dotnet-version: '6.0.x'
     - name: Restore NuGet
-      run: dotnet restore WpfApp.sln -v d # восставновление пакетов nuget
+      run: dotnet restore WpfApp.sln # восставновление пакетов nuget
 
     - name: Build
       run: dotnet build UnitTestProject1/UnitTestProject1.csproj # собираем проект
