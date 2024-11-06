@@ -22,7 +22,7 @@ jobs:
     - name: Build app
       run: dotnet build WpfApp/WpfApp.csproj # собираем приложение
 
-  testing:  
+  testing-debug:  
     runs-on: windows-latest
     needs: build # выполняется последовательно после успешного выполнения build
     steps:
@@ -37,6 +37,25 @@ jobs:
       run: dotnet restore WpfApp.sln # восстановление пакетов nuget
 
     - name: Test app
-      run: dotnet test UnitTestProject1/UnitTestProject1.csproj # тестируем приложение
+      run: dotnet test UnitTestProject1/UnitTestProject1.csproj --configuration Debug # тестируем приложение
 
     - run: echo "Тестирование прошло успешно!"
+
+  testing-release:  
+      runs-on: windows-latest
+      needs: build # выполняется последовательно после успешного выполнения build
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # загружаем реп. на виртуальную машину
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4 # установка SDK для сборки, тестирования проекта
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Restore NuGet
+        run: dotnet restore WpfApp.sln # восстановление пакетов nuget
+
+      - name: Test app
+        run: dotnet test UnitTestProject1/UnitTestProject1.csproj --configuration Release # тестируем приложение
+
+      - run: echo "Тестирование прошло успешно!"
