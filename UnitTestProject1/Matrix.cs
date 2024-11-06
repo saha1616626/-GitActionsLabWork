@@ -8,6 +8,7 @@ namespace UnitTestProject1
 {
     public class matrix
     {
+
         private int[,] matrixOfIntegers;
 
         // конструктор. кол-во строк и кол-во столбцов
