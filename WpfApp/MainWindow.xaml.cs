@@ -62,7 +62,7 @@ namespace WpfApp
                 }
                 // размерность матрицы
                 numberLines = int.Parse(txtRows.Text.Trim());
-                numberColumns = int.Parse(txtColumns.Text.Trim());    
+                numberColumns = int.Parse(txtColumns.Text.Trim());
             }
         }
 
@@ -81,9 +81,9 @@ namespace WpfApp
 
             int amount = 0;
             matrix matrix = new matrix(numberLines, numberColumns);
-            for(int i = 0; i < numberLines; i++)
+            for (int i = 0; i < numberLines; i++)
             {
-                for(int j = 0; j < numberColumns; j++)
+                for (int j = 0; j < numberColumns; j++)
                 {
                     matrix[i, j] = array[amount];
                     amount++;

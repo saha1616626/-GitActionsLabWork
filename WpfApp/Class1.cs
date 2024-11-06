@@ -22,7 +22,7 @@ namespace WpfApp
         // свойсвто дл€ определени€ количества строк матрицы
         public int numberOfLines
         {
-            get {  return matrixOfIntegers.GetLength(0); }
+            get { return matrixOfIntegers.GetLength(0); }
         }
         // свойство дл€ определни€ количества столбцов матрицы
         public int numberOfColumns
@@ -40,7 +40,7 @@ namespace WpfApp
         {
             int composition = 1;
 
-            for (int i = 0; i  < numberOfLines; i++)
+            for (int i = 0; i < numberOfLines; i++)
             {
                 for (int j = 0; j < numberOfColumns; j++)
                 {

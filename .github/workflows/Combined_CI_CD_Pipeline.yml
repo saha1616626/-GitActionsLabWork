@@ -1,4 +1,4 @@
-name: CI General Assignment
+name: Combined CI/CD pipeline
 on:
   push:
     branches:
@@ -59,7 +59,7 @@ jobs:
       - name: Restore NuGet
         run: dotnet restore WpfApp.sln # восстановление пакетов nuget
 
-      - name: Analysis
-        run: dotnet tool install -g dotnet-format && dotnet format WpfApp.sln --verbosity diagnostic # 
+      - name: Сode analysis
+        run: dotnet tool install -g dotnet-format && dotnet format WpfApp.sln --verbosity diagnostic # устанавливаем инструмент для форматирования кода. Получаем детальную информацию при выполнения диагностики. g - установка для всех проектов данной вирт. машине
 
       - run: echo "Анализ кода прошёл успешно!"
