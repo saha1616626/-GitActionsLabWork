@@ -49,7 +49,7 @@ jobs:
     needs: build # выполняется последовательно после успешного выполнения build, но параллельно с testing-combined
     steps:
     - name: Checkout code
-    - uses: actions/checkout@v3
+      uses: actions/checkout@v3
       with:
         submodules: recursive
 
