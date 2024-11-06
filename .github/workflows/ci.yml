@@ -45,11 +45,20 @@ jobs:
       - run: echo "Тестирование прошло успешно!"
 
   analysis:  
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     #needs: build # выполняется последовательно после успешного выполнения build, но параллельно с testing-combined
     steps:
       - name: Checkout code
         uses: actions/checkout@v4 # загружаем реп. на виртуальную машину
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4 # установка SDK для сборки, тестирования проекта
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Restore NuGet
+        run: dotnet restore WpfApp.sln # восстановление пакетов nuget
+
       - name: Analysis
         run: dotnet tool install -g dotnet-format && dotnet format WpfApp.sln
 
