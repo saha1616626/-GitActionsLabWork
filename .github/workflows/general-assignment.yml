@@ -14,6 +14,12 @@ jobs:
       uses: actions/setup-dotnet@v4 # установка SDK для сборки, тестирования и тд. проекта.
       with:
         dotnet-version: '6.0.x'
+    - name: JetBrains ReSharper Inspect Code
+      uses: JetBrains/ReSharper-InspectCode@v0.3
+        with:
+          solution: WpfApp.sln
+    - name: Restore Nuget
+      run: dotnet restore UnitTestProject1/UnitTestProject1.csproj # восставновление пакетов nuget
     - name: Build
       run: dotnet build UnitTestProject1/UnitTestProject1.csproj # собираем проект
   finish:  
