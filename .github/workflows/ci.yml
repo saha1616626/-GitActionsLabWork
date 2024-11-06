@@ -53,6 +53,6 @@ jobs:
       - name: Inspect
         uses: nbadal/inspectcode-action
         with:
-          solution: 'WpfApp.sln'
+          solution: WpfApp.sln
 
       - run: echo "Анализ кода прошёл успешно!"
