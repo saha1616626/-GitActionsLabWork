@@ -6,14 +6,14 @@ on:
       - master
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v4 # загружаем реп. на виртуальную машину
     - name: Setup .NET
       uses: actions/setup-dotnet@v4 # установка SDK для сборки, тестирования и тд. проекта.
       with:
-        dotnet-version: '4.7.2'
+        dotnet-version: '6.0.x'
     - name: Build
       run: dotnet build UnitTestProject1/UnitTestProject1.csproj # собираем проект
   finish:  
