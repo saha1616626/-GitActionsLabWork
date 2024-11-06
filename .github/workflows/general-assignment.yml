@@ -15,7 +15,7 @@ jobs:
       with:
         dotnet-version: '6.0.x'
     - name: Restore NuGet
-        run: dotnet restore UnitTestProject1/UnitTestProject1.csproj -v d # восставновление пакетов nuget
+      run: dotnet restore UnitTestProject1/UnitTestProject1.csproj -v d # восставновление пакетов nuget
 
     - name: Checking environment...
       uses: RahulParmarRP/dotnet-build-test-msdeploy@master
