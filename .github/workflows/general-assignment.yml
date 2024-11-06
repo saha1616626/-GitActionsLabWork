@@ -15,7 +15,7 @@ jobs:
       with:
         dotnet-version: '8.0.x'
     - name: Build
-      run: dotnet build src/UnitTestProject1/UnitTest1.csproj # собираем проект
+      run: dotnet build UnitTestProject1/UnitTestProject1.csproj # собираем проект
   finish:  
     runs-on: ubuntu-latest
     needs: build
