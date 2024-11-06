@@ -45,17 +45,17 @@ jobs:
     - run: echo "Тестирование прошло успешно!"
 
   analysis:  
-      runs-on: ubuntu-latest
-      needs: build # выполняется последовательно после успешного выполнения build, но параллельно с testing-combined
-      steps:
-      - name: Checkout code
-      - uses: actions/checkout@v3
-        with:
-          submodules: recursive
+    runs-on: ubuntu-latest
+    needs: build # выполняется последовательно после успешного выполнения build, но параллельно с testing-combined
+    steps:
+    - name: Checkout code
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
 
-      - name: Annotate
-        uses: JetBrains/ReSharper-InspectCode@v0.3
-        with:
-          solution: WpfApp.sln
+    - name: Annotate
+      uses: JetBrains/ReSharper-InspectCode@v0.3
+      with:
+        solution: WpfApp.sln
 
-      - run: echo "Анализ код прошёл успешно!"
+    - run: echo "Анализ код прошёл успешно!"
