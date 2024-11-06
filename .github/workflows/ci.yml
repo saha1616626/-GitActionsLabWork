@@ -46,7 +46,7 @@ jobs:
 
   analysis:  
     runs-on: windows-latest
-    #needs: build # выполняется последовательно после успешного выполнения build, но параллельно с testing-combined
+    needs: build # выполняется последовательно после успешного выполнения build, но параллельно с testing-combined
     steps:
       - name: Checkout code
         uses: actions/checkout@v4 # загружаем реп. на виртуальную машину
@@ -60,6 +60,6 @@ jobs:
         run: dotnet restore WpfApp.sln # восстановление пакетов nuget
 
       - name: Analysis
-        run: dotnet tool install -g dotnet-format && dotnet format WpfApp.sln
+        run: dotnet tool install -g dotnet-format && dotnet format WpfApp.sln --verbosity diagnostic # 
 
       - run: echo "Анализ кода прошёл успешно!"
