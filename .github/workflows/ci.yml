@@ -23,7 +23,7 @@ jobs:
     #   run: dotnet build WpfApp/WpfApp.csproj # собираем приложение
 
   testing:  
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build # выполняется последовательно после успешного выполнения build
     steps:
     - name: Checkout code
